@@ -1,3 +1,65 @@
 ﻿@page "/"
+@inject IApiConnector<Country.Root> ApiConnector
 
-<h1>Hello, world!</h1>
+<HeaderComponent />
+
+<div class="search-container">
+    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+    <input class="search-input" placeholder="Search for a country.." />
+</div>
+
+<div class="dropdown-container">
+    <select class="dropdown" @bind="@SelectedRegionId" placeholder="Filter by region">
+        <option class="dropdown-option" value="" disabled selected hidden>Filter by region</option>
+        <option class="dropdown-option" value="Africa"> Africa </option>
+        <option class="dropdown-option" value="America"> America </option>
+        <option class="dropdown-option" value="Asia"> Asia </option>
+        <option class="dropdown-option" value="Europe"> Europe </option>
+        <option class="dropdown-option" value="Oceania"> Oceania </option>
+    </select>
+</div>
+
+
+@if (_countries != null)
+{
+
+    @foreach (var country in _countries)
+    {
+        <a href="/countrydetail">
+            <div class="card-container">
+                <div class="card">
+                    <img class="card-img" src="@country.flags.png" alt="austria small flag" />
+                    <div class="card-country-info">
+                        <p class="card-country-name">@country.name.official</p>
+                        <p>Population: <span class="card-info-prc"> @country.population </span></p>
+                        <p>Region: <span class="card-info-prc">@country.region </span></p>
+                        @*<p>Capital:  <span class="card-info-prc">@country.capital.Capacity </span></p>*@
+                    </div>
+                </div>
+            </div>
+        </a>
+
+    }
+}
+
+
+
+@code
+{
+
+    private IList<Country.Root>? _countries;
+
+
+    [Parameter]
+    public int? SelectedRegionId { get; set; }
+
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        _countries = await ApiConnector.FindAsync("https://restcountries.com/v3.1/all");
+
+    }
+}
+}
+

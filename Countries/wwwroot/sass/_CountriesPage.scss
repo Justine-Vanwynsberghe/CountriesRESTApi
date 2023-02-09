@@ -1,0 +1,118 @@
+﻿@import "_Variables.scss";
+
+body {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1.4rem;
+    background-color: $dark-very-dark-blue;
+    color: $white;
+
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+        padding: 5rem 2rem;
+        color: $white;
+        background-color: $dark-blue;
+        letter-spacing: 0.1rem;
+
+
+        .header-btn {
+            border: none;
+            color: $white;
+            background: none;
+            cursor: pointer;
+            font-size: 2rem;
+            letter-spacing: 0.1rem;
+
+            .moon-icon {
+                padding-right: 1rem;
+            }
+        }
+    }
+
+
+    .search-container {
+        display: flex;
+        align-items: center;
+        background-color: $dark-blue;
+        padding: 2.5rem 4rem;
+        margin: 3rem 2rem;
+        flex-basis: 40rem;
+        column-gap: 2rem;
+        border-radius: 0.5rem;
+
+        .search-icon {
+            font-size: 2.5rem;
+        }
+
+        .search-input {
+            background-color: $dark-blue;
+            border: none;
+            font-size: 2rem;
+        }
+    }
+
+    .dropdown-container {
+        padding: 2rem;
+        padding-bottom: 8rem;
+
+        .dropdown {
+            color: $white;
+            background-color: $dark-blue;
+            font-size: 2rem;
+            padding: 1rem;
+
+            .dropdown-option{
+                font-size: 0.75rem;
+
+            }
+        }
+    }
+
+
+
+    a {
+        text-decoration: none;
+
+        .card-container {
+            padding: 0 12rem 8rem 12rem;
+
+            .card {
+                background-color: $dark-blue;
+                color: $white;
+
+                .card-img {
+                    min-height: 25rem;
+                    width: 100%;
+                    object-fit: fill;
+                }
+
+                .card-country-info {
+                    font-size: 2rem;
+                    letter-spacing: 0.1rem;
+                    padding: 3rem 0 5rem 3rem;
+
+
+
+                    .card-country-name {
+                        font-weight: 800;
+                        padding-bottom: 1.5rem;
+                    }
+                }
+            }
+        }
+    }
+    /*=============== COUNTRY DETAIL PAGE ================ */
+
+
+    .btn-back-container {
+        padding: 4rem 4rem;
+
+        .btn-back {
+            background-color: $dark-blue;
+            color: $white;
+            font-size: 2rem;
+            text-decoration: none;
+            padding: 1.5rem 5rem;
+        }
+    }
+}

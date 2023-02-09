@@ -1,0 +1,43 @@
+﻿@page "/countrydetail/{name}"
+@inject ApiConnector<Country.Root> ApiConnector
+
+
+
+<HeaderComponent />
+
+<div class="btn-back-container">
+    <a href="/" class="btn-back">Back</a>
+</div>
+
+
+<section>
+    @if (_country != null)
+    {
+   @*     <img class="card-img" src="@_country.at.flag.large" alt="austria small flag"/>
+        @_country.at.nativeNames.bar.official
+        @_country.at.population
+        @_country.at.region
+        @_country.at.subregion
+        @_country.at.capital
+        <br/>
+        @_country.at.topLevelDomain
+        @_country.at.currencies
+        @_country.at.languages.bar
+        <br/>
+        @_country.at.borders
+*@
+
+
+    }
+
+</section>
+
+@code {
+    private Country.Root? _country;
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        //_country = await ApiConnector.GetAsync($"https://restcountries.com/v3.1/name/{name}");
+    }
+}
