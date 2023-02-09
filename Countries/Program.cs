@@ -16,6 +16,9 @@ builder.Services.AddScoped(sp =>
     });
 
 builder.Services.AddScoped<IApiConnector<Country.Root>, ApiConnector<Country.Root>>();
+builder.Services.AddScoped<IApiConnector<Rootobject>, ApiConnector<Rootobject>>();
+
+
 //builder.Services.AddSyncfusionBlazor();
 
 await builder.Build().RunAsync();

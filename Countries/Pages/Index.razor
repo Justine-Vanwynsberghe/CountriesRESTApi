@@ -5,11 +5,11 @@
 
 <div class="search-container">
     <i class="fa-solid fa-magnifying-glass search-icon"></i>
-    <input class="search-input" placeholder="Search for a country.." />
+    <input class="search-input" placeholder="Search for a country.." @bind="_searchText" @bind:event="oninput" />
 </div>
 
 <div class="dropdown-container">
-    <select class="dropdown" @bind="@SelectedRegionId" placeholder="Filter by region">
+    <select class="dropdown" >
         <option class="dropdown-option" value="" disabled selected hidden>Filter by region</option>
         <option class="dropdown-option" value="Africa"> Africa </option>
         <option class="dropdown-option" value="America"> America </option>
@@ -23,9 +23,9 @@
 @if (_countries != null)
 {
 
-    @foreach (var country in _countries)
+    @foreach (var country in FilteredCountries)
     {
-        <a href="/countrydetail">
+        <a href="/countrydetail/@country.name.common">
             <div class="card-container">
                 <div class="card">
                     <img class="card-img" src="@country.flags.png" alt="austria small flag" />
@@ -43,23 +43,21 @@
 }
 
 
-
 @code
 {
-
     private IList<Country.Root>? _countries;
-
-
-    [Parameter]
-    public int? SelectedRegionId { get; set; }
-
+    private string _searchText { get; set; } = "";
 
     protected override async Task OnInitializedAsync()
     {
-
         _countries = await ApiConnector.FindAsync("https://restcountries.com/v3.1/all");
-
     }
-}
+
+    IList<Country.Root> FilteredCountries =>
+        _countries?.Where(c => c.name.official.ToLower().Contains(_searchText.ToLower())).ToList();
+
+   
+
+
 }
 
