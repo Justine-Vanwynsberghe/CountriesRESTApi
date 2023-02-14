@@ -1,4 +1,167 @@
-﻿/* Box sizing rules */
+﻿:root {
+  --background: #202c37;
+  --elements-bg: #2b3945;
+  --text-color: #ffffff;
+  --displaySun: block;
+  --displayMoon: none;
+}
+:root .moon-icon {
+  display: var(--displayMoon);
+}
+:root .dark {
+  display: none;
+}
+
+.light-mode {
+  --background: #fafafa;
+  --elements-bg: #ffffff;
+  --text-color: #111517;
+  --input: #858585;
+  --displaySun: none;
+  --displayMoon: block;
+}
+.light-mode .sun-icon {
+  display: var(--displaySun);
+}
+.light-mode .light {
+  display: none;
+}
+.light-mode .dark {
+  display: block;
+}
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1.4rem;
+  /*=============== COUNTRY DETAIL PAGE ================ */
+}
+body .main {
+  background-color: var(--background);
+  color: var(--text-color);
+  min-height: 100vh;
+}
+body .header-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 5rem 2rem;
+  color: var(--text-color);
+  background-color: var(--elements-bg);
+  letter-spacing: 0.1rem;
+  /*        @media (min-width: 700px) {
+      padding: 1.5rem 0.5rem 1.5rem 1.5rem;
+      font-size: 0.55rem;
+      letter-spacing: 0;
+      align-items: center;
+  }*/
+}
+body .header-container .toggle-container {
+  display: flex;
+  align-items: center;
+  border: none;
+  color: var(--text-color);
+  background: none;
+  cursor: pointer;
+  font-size: 2rem;
+  letter-spacing: 0.1rem;
+  /*       @media (min-width: 900px) {
+      font-size: 0.65rem;
+      align-items: center;
+      letter-spacing: 0;
+  }*/
+}
+body .header-container .toggle-container .moon-icon, body .header-container .toggle-container .sun-icon {
+  padding-right: 1rem;
+  /* @media (min-width: 900px) {
+      padding-right: 0.4rem;
+  }*/
+}
+body .search-dropdown-container {
+  padding: 3rem 2rem;
+}
+body .search-dropdown-container .search-container {
+  display: flex;
+  align-items: center;
+  background-color: var(--elements-bg);
+  padding: 2.5rem 4rem;
+  flex-basis: 40rem;
+  column-gap: 2rem;
+  border-radius: 0.5rem;
+}
+body .search-dropdown-container .search-container .search-icon {
+  font-size: 2.5rem;
+  color: var(--text-color);
+}
+body .search-dropdown-container .search-container .search-input {
+  background-color: var(--elements-bg);
+  border: none;
+  font-size: 2rem;
+}
+body .search-dropdown-container .dropdown-container {
+  padding: 2rem;
+  padding-bottom: 8rem;
+}
+body .search-dropdown-container .dropdown-container .dropdown {
+  color: var(--text-color);
+  background-color: var(--elements-bg);
+  font-size: 2rem;
+  padding: 1rem;
+}
+body .search-dropdown-container .dropdown-container .dropdown .dropdown-option {
+  font-size: 0.75rem;
+}
+body a {
+  text-decoration: none;
+}
+body a .card-container {
+  padding: 0 12rem 8rem 12rem;
+}
+body a .card-container .card {
+  background-color: var(--elements-bg);
+  color: var(--text-color);
+}
+body a .card-container .card .card-img {
+  min-height: 25rem;
+  width: 100%;
+  object-fit: fill;
+}
+body a .card-container .card .card-country-info {
+  font-size: 2rem;
+  letter-spacing: 0.1rem;
+  padding: 3rem 0 5rem 3rem;
+}
+body a .card-container .card .card-country-info .card-country-name {
+  font-weight: 800;
+  padding-bottom: 1.5rem;
+}
+body .btn-back-container {
+  padding: 4rem 4rem;
+}
+body .btn-back-container .btn-back {
+  background-color: var(--elements-bg);
+  color: var(--text-color);
+  font-size: 0.85rem;
+  text-decoration: none;
+  padding: 1.5rem 5rem;
+}
+body .country-details {
+  padding: 3rem;
+}
+body .country-details .card-img {
+  width: 100%;
+  object-fit: fill;
+  padding-bottom: 8rem;
+}
+body .country-details .details-info-title {
+  font-weight: bold;
+  font-size: 2rem;
+  padding-bottom: 2rem;
+}
+body .country-details .details-info {
+  font-size: 1.2rem;
+  font-weight: lighter;
+}
+
+/* Box sizing rules */
 *,
 *::before,
 *::after {
@@ -71,94 +234,34 @@ select {
     scroll-behavior: auto !important;
   }
 }
-body {
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 1.4rem;
-  background-color: #202c37;
-  color: #ffffff;
-  /*=============== COUNTRY DETAIL PAGE ================ */
+:root {
+  --background: #202c37;
+  --elements-bg: #2b3945;
+  --text-color: #ffffff;
+  --displaySun: block;
+  --displayMoon: none;
 }
-body .header-container {
-  display: flex;
-  justify-content: space-between;
-  padding: 5rem 2rem;
-  color: #ffffff;
-  background-color: #2b3945;
-  letter-spacing: 0.1rem;
+:root .moon-icon {
+  display: var(--displayMoon);
 }
-body .header-container .header-btn {
-  border: none;
-  color: #ffffff;
-  background: none;
-  cursor: pointer;
-  font-size: 2rem;
-  letter-spacing: 0.1rem;
+:root .dark {
+  display: none;
 }
-body .header-container .header-btn .moon-icon {
-  padding-right: 1rem;
+
+.light-mode {
+  --background: #fafafa;
+  --elements-bg: #ffffff;
+  --text-color: #111517;
+  --input: #858585;
+  --displaySun: none;
+  --displayMoon: block;
 }
-body .search-container {
-  display: flex;
-  align-items: center;
-  background-color: #2b3945;
-  padding: 2.5rem 4rem;
-  margin: 3rem 2rem;
-  flex-basis: 40rem;
-  column-gap: 2rem;
-  border-radius: 0.5rem;
+.light-mode .sun-icon {
+  display: var(--displaySun);
 }
-body .search-container .search-icon {
-  font-size: 2.5rem;
+.light-mode .light {
+  display: none;
 }
-body .search-container .search-input {
-  background-color: #2b3945;
-  border: none;
-  font-size: 2rem;
-}
-body .dropdown-container {
-  padding: 2rem;
-  padding-bottom: 8rem;
-}
-body .dropdown-container .dropdown {
-  color: #ffffff;
-  background-color: #2b3945;
-  font-size: 2rem;
-  padding: 1rem;
-}
-body .dropdown-container .dropdown .dropdown-option {
-  font-size: 0.75rem;
-}
-body a {
-  text-decoration: none;
-}
-body a .card-container {
-  padding: 0 12rem 8rem 12rem;
-}
-body a .card-container .card {
-  background-color: #2b3945;
-  color: #ffffff;
-}
-body a .card-container .card .card-img {
-  min-height: 25rem;
-  width: 100%;
-  object-fit: fill;
-}
-body a .card-container .card .card-country-info {
-  font-size: 2rem;
-  letter-spacing: 0.1rem;
-  padding: 3rem 0 5rem 3rem;
-}
-body a .card-container .card .card-country-info .card-country-name {
-  font-weight: 800;
-  padding-bottom: 1.5rem;
-}
-body .btn-back-container {
-  padding: 4rem 4rem;
-}
-body .btn-back-container .btn-back {
-  background-color: #2b3945;
-  color: #ffffff;
-  font-size: 2rem;
-  text-decoration: none;
-  padding: 1.5rem 5rem;
+.light-mode .dark {
+  display: block;
 }

@@ -20,9 +20,8 @@ public class ApiConnector<T> : IApiConnector<T>
         response.EnsureSuccessStatusCode();
 
         if (response.StatusCode == HttpStatusCode.NoContent) return default;
-
-        var content = await response.Content.ReadFromJsonAsync<T>();
-        return content;
+        var content = await response.Content.ReadFromJsonAsync<List<T>>();
+        return content.FirstOrDefault();
     }
 
     public async Task<IList<T>?> FindAsync(string requestUri)

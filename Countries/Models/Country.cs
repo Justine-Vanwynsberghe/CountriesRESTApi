@@ -2,6 +2,9 @@
 
 namespace Countries.Models;
 
+/*
+ * '[{"name":{"common":"United Arab Emirates","official":"United Arab Emirates","nativeName":{"ara":{"official":"الإمارات العربية المتحدة","common":"دولة الإمارات العربية المتحدة"}}},"tld":[".ae","امارات."],"cca2":"AE","ccn3":"784","cca3":"ARE","cioc":"UAE","independent":true,"status":"officially-assigned","unMember":true,"currencies":{"AED":{"name":"United Arab Emirates dirham","symbol":"د.إ"}},"idd":{"root":"+9","suffixes":["71"]},"capital":["Abu Dhabi"],"altSpellings":["AE","UAE","Emirates"],"re…/flagcdn.com/w320/ae.png","svg":"https://flagcdn.com/ae.svg","alt":"The flag of United Arab Emirates features a red vertical band on its hoist side that takes up about one-fourth the width of the field and three equal horizontal bands of green, white and black adjoining the vertical band."},"coatOfArms":{"png":"https://mainfacts.com/media/images/coats_of_arms/ae.png","svg":"https://mainfacts.com/media/images/coats_of_arms/ae.svg"},"startOfWeek":"sunday","capitalInfo":{"latlng":[24.47,54.37]}}]'
+ */
 public class Country
 {
     //RESTCOUNTRIES FEM: api all countries
@@ -180,6 +183,7 @@ public class Country
     public class Name
     {
         public string? common { get; set; }
+
         public string? official { get; set; }
         public NativeName nativeName { get; set; }
     }

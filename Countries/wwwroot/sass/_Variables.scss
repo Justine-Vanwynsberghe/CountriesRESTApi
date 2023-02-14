@@ -1,10 +1,45 @@
-﻿//colors
-$dark-blue: #2b3945;
-$dark-very-dark-blue: #202c37;                       //dark-mode-bg
-$very-dark-blue: #111517;                       //light-mode-txt
-$dark-gray: #858585;                            //light-mode-input
-$very-light-gray: #fafafa;                      //light-mode-bg
-$white: #ffffff;                                //dark-mode-text & light-mode-elements
+﻿//font
+$nunito-sans: Nunito Sans;
 
-//font
-$nunito-sans: Nunito Sans; 
+:root {
+    --background: #202c37;
+    --elements-bg: #2b3945;
+    --text-color: #ffffff;
+    --displaySun: block;
+    --displayMoon: none;
+
+    .moon-icon{
+        display: var(--displayMoon);
+    }
+
+    .dark{
+        display: none;
+    }
+}
+
+
+
+.light-mode {
+    --background: #fafafa;
+    --elements-bg: #ffffff;
+    --text-color: #111517;
+    --input: #858585; //light-mode-input
+
+    --displaySun: none;
+    --displayMoon: block;
+
+    .sun-icon {
+        display: var(--displaySun);
+    }
+
+    .light{
+        display: none;
+    }
+
+    .dark{
+        display: block;
+    }
+}
+
+
+

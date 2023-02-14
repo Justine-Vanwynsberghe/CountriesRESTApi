@@ -2,6 +2,7 @@ using Countries;
 using Countries.ApiService;
 using Countries.ApiService.Interfaces;
 using Countries.Models;
+using Countries.StateManagement;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
@@ -15,10 +16,7 @@ builder.Services.AddScoped(sp =>
         BaseAddress = new Uri(builder.HostEnvironment.BaseAddress)
     });
 
+builder.Services.AddScoped<CssState>();
 builder.Services.AddScoped<IApiConnector<Country.Root>, ApiConnector<Country.Root>>();
-builder.Services.AddScoped<IApiConnector<Rootobject>, ApiConnector<Rootobject>>();
-
-
-//builder.Services.AddSyncfusionBlazor();
 
 await builder.Build().RunAsync();
