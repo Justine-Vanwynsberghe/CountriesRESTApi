@@ -10,12 +10,10 @@
     </div>
 
 
-    <section class="country-details">
+    <section class="details">
         @if (Country != null)
         {
-
             <img class="card-img" src="@Country?.flags?.png" alt="flag from specific country" />
-
 
             <div class="details-info">
                 <p class="details-info-title">@Country?.name?.official</p>
@@ -27,33 +25,30 @@
                 <br />
                 <p>Top Level Domain: @Country?.tld?[0]</p>
                 <br />
-                <p>
-                    Border countries:
-                </p>
 
-                @if (Country?.borders != null)
-                {
-                    <div class="border-container">
-                        @if (Countries != null)
-                        {
-                            foreach (var country in Countries)
+                <div class="border">
+                    <p class="border-title">
+                        Border countries:
+                    </p>
+
+                    @if (Country?.borders != null)
+                    {
+                        <div class="border-container">
+                            @if (Countries != null)
                             {
-                                <a class="btn-border" @onclick="() => ChangeCountry(country?.name?.common!)">@country?.name?.common</a>
+                                foreach (var country in Countries)
+                                {
+                                    <a class="btn-border" @onclick="() => ChangeCountry(country?.name?.common!)">@country?.name?.common</a>
+                                }
                             }
-                        }
-                    </div>
-
-
-                }
-                else
-                {
-                    <span> No borders</span>
-
-                }
-
-
+                        </div>
+                    }
+                    else
+                    {
+                        <p> No borders</p>
+                    }
+                </div>
             </div>
-
         }
     </section>
 </div>
@@ -65,11 +60,7 @@
     public string? Name { get; set; }
 
     private Country.Root? Country { get; set; } = new();
-
-
-    private IList<Country.Root?>? Countries { get; set; } = new List<Country.Root?>();
-
-
+    private IList<Country.Root?>? Countries { get; } = new List<Country.Root?>();
 
 
     protected override async Task OnInitializedAsync()
@@ -80,11 +71,8 @@
         {
             for (int i = 0; i < Country.borders.Count; i++)
             {
-
                 string borderShort = Country.borders[i];
                 Countries?.Add(await ApiConnector.GetAsync($"https://restcountries.com/v3.1/alpha/{borderShort}"));
-
-
             }
         }
 

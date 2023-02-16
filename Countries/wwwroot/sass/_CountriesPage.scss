@@ -2,7 +2,6 @@
 
 body {
     font-family: 'Nunito Sans', sans-serif;
-    font-size: 1.4rem;
 
     .main {
         background-color: var(--background);
@@ -21,6 +20,8 @@ body {
         color: var(--text-color);
         background-color: var(--elements-bg);
         letter-spacing: 0.1rem;
+        font-size: 1.4rem;
+
 
         @media (min-width: 1000px) {
             padding: 1.5rem 0.5rem 1.5rem 1.5rem;
@@ -92,6 +93,7 @@ body {
                 background-color: var(--elements-bg);
                 border: none;
                 font-size: 2rem;
+                color: var(--input);
 
                 @media (min-width: 1000px) {
                     font-size: 1rem;
@@ -132,23 +134,36 @@ body {
             padding: 0;
             display: grid;
             column-gap: 0.75rem;
+            row-gap: 3rem;
             grid-template-columns: 25% 25% 25% 25%;
         }
 
 
         a {
             text-decoration: none;
+            border-radius: 3%;
+            transition: box-shadow 2s linear;
+
+            @media (min-width: 1000px) {
+                max-width: 13rem;
+
+
+                &:hover {
+                    transform: translateY(5px);
+                    box-shadow: 1px 2px 10px 4px var(--text-color);
+                }
+            }
 
             .card {
                 background-color: var(--elements-bg);
                 color: var(--text-color);
-                margin-bottom: 4rem;
                 border-radius: 3%;
+                margin-bottom: 8rem;
 
 
                 @media (min-width: 1000px) {
                     max-width: 13rem;
-                    /*min-height: 19rem;*/
+                    margin-bottom: 0;
                 }
 
                 .card-img {
@@ -213,11 +228,12 @@ body {
         }
     }
 
-    .country-details {
+    .details {
         padding: 3rem;
 
         @media (min-width: 1000px) {
             padding: 0;
+            padding-top: 3rem;
             display: flex;
             gap: 2rem;
         }
@@ -229,47 +245,74 @@ body {
             padding-bottom: 8rem;
 
             @media (min-width: 1000px) {
-                max-width: 30rem;
-                max-height: 20rem;
+                width: 40%;
                 padding: 0;
             }
         }
 
-        .details-info-title {
-            font-weight: bold;
-            font-size: 3rem;
-            padding-bottom: 2rem;
-
-            @media (min-width: 1000px) {
-                font-size: 1.5rem;
-            }
-        }
 
         .details-info {
-            font-size: 1.5rem;
+            /*font-size: 1.5rem;*/
 
             @media (min-width: 1000px) {
-                font-size: 0.90rem;
+                font-size: 0.5rem;
+                font-weight: lighter;
+                padding-left: 2rem;
+            }
+
+            p {
+                font-size: 1.5rem;
+
+                @media (min-width: 1000px) {
+                    font-size: 0.8rem;
+                }
             }
 
 
-            .border-container {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 1.5rem;
+            .details-info-title {
+                font-weight: bold;
+                font-size: 3rem;
+                padding-bottom: 2rem;
 
-                .btn-border {
-                    background-color: var(--elements-bg);
-                    color: var(--text-color);
-                    font-size: 2rem;
-                    text-decoration: none;
-                    padding: 1.5rem 2rem;
-                    box-shadow: 0.2rem 0.2rem 0.5rem 0.05rem rgb(0 0 0 / 20%);
+                @media (min-width: 1000px) {
+                    font-size: 1rem;
+                }
+            }
 
+            .border {
+                @media (min-width: 1000px) {
+                    display: flex;
+                    align-items: center;
+                }
+
+                .border-title {
+                    font-size: 2.4rem;
 
                     @media (min-width: 1000px) {
-                        font-size: 1rem;
-                        padding: 0.5rem;
+                        font-size: 0.7rem;
+                        font-weight: bold;
+                        padding-right: 1rem;
+                    }
+                }
+
+                .border-container {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 0.5rem;
+
+                    .btn-border {
+                        background-color: var(--elements-bg);
+                        color: var(--text-color);
+                        font-size: 2rem;
+                        text-decoration: none;
+                        padding: 1.5rem 2rem;
+                        box-shadow: 0.2rem 0.2rem 0.5rem 0.05rem rgb(0 0 0 / 20%);
+
+
+                        @media (min-width: 1000px) {
+                            font-size: 0.7rem;
+                            padding: 0.2rem 0.8rem;
+                        }
                     }
                 }
             }
