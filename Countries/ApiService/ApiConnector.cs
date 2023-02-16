@@ -21,7 +21,7 @@ public class ApiConnector<T> : IApiConnector<T>
 
         if (response.StatusCode == HttpStatusCode.NoContent) return default;
         var content = await response.Content.ReadFromJsonAsync<List<T>>();
-        return content.FirstOrDefault();
+        return content!.FirstOrDefault();
     }
 
     public async Task<IList<T>?> FindAsync(string requestUri)

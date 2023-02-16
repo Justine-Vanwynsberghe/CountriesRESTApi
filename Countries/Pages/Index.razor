@@ -8,7 +8,7 @@
     <div class="search-dropdown-container">
         <div class="search-container">
             <i class="fa-solid fa-magnifying-glass search-icon"></i>
-            <input class="search-input" placeholder="Search for a country.." @bind="_searchText" @bind:event="oninput" />
+            <input class="search-input" placeholder="Search for a country.." @bind="SearchText" @bind:event="oninput" />
         </div>
 
 
@@ -26,25 +26,25 @@
 
 
 
-    @if (_countries != null)
+    @if (_countries != null && FilteredCountries != null)
     {
+        <div class="grid-container">
 
-    @foreach (var country in FilteredCountries)
-    {
-    <a href="/countrydetail/@country.name.common">
-        <div class="card-container">
-            <div class="card">
-                <img class="card-img" src="@country.flags.png" alt="austria small flag" />
-                <div class="card-country-info">
-                    <p class="card-country-name">@country.name.official</p>
-                    <p>Population: <span class="card-info-prc"> @country.population </span></p>
-                    <p>Region: <span class="card-info-prc">@country.region </span></p>
-                    @*<p>Capital:  <span class="card-info-prc"> @country.capital[0] </span></p>*@
-                </div>
-            </div>
+            @foreach (var country in FilteredCountries)
+            {
+                <a href="/countrydetail/@country?.name?.common">
+                    <div class="card">
+                        <img class="card-img" src="@country?.flags?.png" alt="austria small flag" />
+                        <div class="card-country-info">
+                            <p class="card-country-name">@country?.name?.common</p>
+                            <p>Population: <span class="card-info-prc"> @country?.population </span></p>
+                            <p>Region: <span class="card-info-prc">@country?.region </span></p>
+                            @*<p>Capital: <span class="card-info-prc"> @country.capital[0] </span></p>*@
+                        </div>
+                    </div>
+                </a>
+            }
         </div>
-    </a>
-    }
     }
 </div>
 
@@ -53,7 +53,7 @@
 @code
 {
     private IList<Country.Root>? _countries;
-    private string _searchText { get; set; } = "";
+    private string? SearchText { get; set; } = "";
 
     protected override async Task OnInitializedAsync()
     {
@@ -61,8 +61,9 @@
         CssState.Subscribe(this);
     }
 
+
     IList<Country.Root>? FilteredCountries =>
-        _countries?.Where(c => c.name.official != null && c.name.official.ToLower().Contains(_searchText.ToLower())).ToList();
+        _countries?.Where(c => c.name?.official != null && c.name.official.ToLower().Contains(SearchText?.ToLower()!)).ToList();
 
 
     private async Task FilterCountriesByRegion(ChangeEventArgs e)
