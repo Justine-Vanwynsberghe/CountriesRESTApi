@@ -16,37 +16,41 @@
             <img class="card-img" src="@Country?.flags?.png" alt="flag from specific country" />
 
             <div class="details-info">
-                <p class="details-info-title">@Country?.name?.official</p>
-                <p>Native Name: @Country?.name?.common</p>
-                <p>Population: @Country?.population</p>
-                <p>Region: @Country?.region</p>
-                <p>Sub Region: @Country?.subregion</p>
-                <p>Capital: @Country?.capital?[0]</p>
-                <br />
-                <p>Top Level Domain: @Country?.tld?[0]</p>
-                <br />
+                <h3 class="details-info-title">@Country?.name?.official</h3>
+                <div class="info-section">
+                    <div class="info-first-section">
+                        <p> Native Name: <span>@Country?.name?.common </span></p>
+                        <p>Population:<span>@Country?.population </span></p>
+                        <p>Region:<span>@Country?.region </span></p>
+                        <p>Sub Region:<span>@Country?.subregion</span></p>
+                        <p>Capital:<span>@Country?.capital?[0]</span></p>
+                        <p>Top Level Domain: <span>@Country?.tld?[0]</span></p>
+                    </div>
+                </div>
 
-                <div class="border">
-                    <p class="border-title">
-                        Border countries:
-                    </p>
+                <div class="info-third-section">
+                    <div class="border">
+                        <p class="border-title">
+                            Border countries:
+                        </p>
 
-                    @if (Country?.borders != null)
-                    {
-                        <div class="border-container">
-                            @if (Countries != null)
-                            {
-                                foreach (var country in Countries)
+                        @if (Country?.borders != null)
+                        {
+                            <div class="border-container">
+                                @if (Countries != null)
                                 {
-                                    <a class="btn-border" @onclick="() => ChangeCountry(country?.name?.common!)">@country?.name?.common</a>
+                                    foreach (var country in Countries)
+                                    {
+                                        <a class="btn-border" @onclick="() => ChangeCountry(country?.name?.common!)">@country?.name?.common</a>
+                                    }
                                 }
-                            }
-                        </div>
-                    }
-                    else
-                    {
-                        <p> No borders</p>
-                    }
+                            </div>
+                        }
+                        else
+                        {
+                            <p> No borders</p>
+                        }
+                    </div>
                 </div>
             </div>
         }

@@ -2,6 +2,7 @@
   --background: #202c37;
   --elements-bg: #2b3945;
   --text-color: #ffffff;
+  --info-text: #e5e5e5;
   --displaySun: block;
   --displayMoon: none;
 }
@@ -16,6 +17,7 @@
   --background: #fafafa;
   --elements-bg: #ffffff;
   --text-color: #111517;
+  --info-text: #4c4c4c;
   --input: #858585;
   --displaySun: none;
   --displayMoon: block;
@@ -121,7 +123,8 @@ body .search-dropdown-container .search-container .search-icon {
 }
 body .search-dropdown-container .search-container .search-input {
   background-color: var(--elements-bg);
-  border: none;
+  border: 0;
+  outline: none;
   font-size: 2rem;
   color: var(--input);
 }
@@ -131,8 +134,7 @@ body .search-dropdown-container .search-container .search-input {
   }
 }
 body .search-dropdown-container .dropdown-container {
-  padding: 2rem 0;
-  padding-bottom: 8rem;
+  padding: 3rem 0;
 }
 @media (min-width: 1000px) {
   body .search-dropdown-container .dropdown-container {
@@ -143,11 +145,15 @@ body .search-dropdown-container .dropdown-container .dropdown {
   color: var(--text-color);
   background-color: var(--elements-bg);
   font-size: 2rem;
-  padding: 1rem;
+  padding: 2rem !important;
+  cursor: pointer;
+  border: 0;
+  outline: none;
 }
 @media (min-width: 1000px) {
   body .search-dropdown-container .dropdown-container .dropdown {
     font-size: 1rem;
+    padding: 1rem !important;
   }
 }
 body .search-dropdown-container .dropdown-container .dropdown .dropdown-option {
@@ -155,28 +161,27 @@ body .search-dropdown-container .dropdown-container .dropdown .dropdown-option {
 }
 body .grid-container {
   padding: 0 10rem;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
 }
 @media (min-width: 1000px) {
   body .grid-container {
     padding: 0;
     display: grid;
-    column-gap: 0.75rem;
-    row-gap: 3rem;
-    grid-template-columns: 25% 25% 25% 25%;
+    gap: 4rem;
   }
 }
 body .grid-container a {
   text-decoration: none;
   border-radius: 3%;
-  transition: box-shadow 2s linear;
+  transition: all 0.1s linear;
 }
 @media (min-width: 1000px) {
   body .grid-container a {
-    max-width: 13rem;
+    /*max-width: 13rem;*/
   }
   body .grid-container a:hover {
-    transform: translateY(5px);
-    box-shadow: 1px 2px 10px 4px var(--text-color);
+    transform: translateY(-5px);
+    box-shadow: 1px 2px 10px 1px var(--text-color);
   }
 }
 body .grid-container a .card {
@@ -184,23 +189,25 @@ body .grid-container a .card {
   color: var(--text-color);
   border-radius: 3%;
   margin-bottom: 8rem;
+  height: 100%;
 }
 @media (min-width: 1000px) {
   body .grid-container a .card {
-    max-width: 13rem;
+    /*max-width: 13rem;*/
     margin-bottom: 0;
   }
 }
 body .grid-container a .card .card-img {
-  min-height: 25rem;
+  /*min-height: 25rem;*/
   width: 100%;
-  object-fit: fill;
+  object-fit: cover;
   border-top-left-radius: 3%;
   border-top-right-radius: 3%;
+  aspect-ratio: 16/9;
 }
 @media (min-width: 1000px) {
   body .grid-container a .card .card-img {
-    min-height: 9.5rem;
+    /*min-height: 9.5rem;*/
   }
 }
 body .grid-container a .card .card-country-info {
@@ -215,13 +222,27 @@ body .grid-container a .card .card-country-info {
     padding: 1rem 1rem 2rem 1rem;
   }
 }
+body .grid-container a .card .card-country-info .info-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+body .grid-container a .card .card-country-info p {
+  font-weight: bold;
+}
+body .grid-container a .card .card-country-info p span {
+  font-weight: normal;
+  color: var(--info-text);
+}
 body .grid-container a .card .card-country-info .card-country-name {
   font-weight: 800;
-  padding-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  font-size: 3rem;
 }
 @media (min-width: 1000px) {
   body .grid-container a .card .card-country-info .card-country-name {
     font-weight: bold;
+    font-size: 1.3rem;
   }
 }
 body .btn-back-container {
@@ -270,21 +291,40 @@ body .details .card-img {
 }
 body .details .details-info {
   /*font-size: 1.5rem;*/
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 @media (min-width: 1000px) {
   body .details .details-info {
     font-size: 0.5rem;
     font-weight: lighter;
-    padding-left: 2rem;
+    padding: 2rem;
+    padding-left: 4rem;
+    gap: 2rem;
+  }
+}
+body .details .details-info .info-section {
+  font-size: 1.31rem;
+}
+@media (min-width: 1000px) {
+  body .details .details-info .info-section {
+    display: flex;
+    justify-content: space-between;
   }
 }
 body .details .details-info p {
-  font-size: 1.5rem;
+  font-weight: bold;
+  padding-bottom: 1rem;
 }
 @media (min-width: 1000px) {
   body .details .details-info p {
     font-size: 0.8rem;
   }
+}
+body .details .details-info p span {
+  font-weight: normal;
+  color: var(--info-text);
 }
 body .details .details-info .details-info-title {
   font-weight: bold;
@@ -293,17 +333,25 @@ body .details .details-info .details-info-title {
 }
 @media (min-width: 1000px) {
   body .details .details-info .details-info-title {
-    font-size: 1rem;
+    font-size: 2rem;
+    padding-bottom: 0;
   }
+}
+body .details .details-info .border {
+  padding-top: 2rem;
 }
 @media (min-width: 1000px) {
   body .details .details-info .border {
     display: flex;
     align-items: center;
+    padding-top: 0;
   }
 }
+body .details .details-info .border p {
+  padding: 0;
+}
 body .details .details-info .border .border-title {
-  font-size: 2.4rem;
+  font-size: 1.8rem;
 }
 @media (min-width: 1000px) {
   body .details .details-info .border .border-title {
@@ -321,6 +369,8 @@ body .details .details-info .border .border-container .btn-border {
   background-color: var(--elements-bg);
   color: var(--text-color);
   font-size: 2rem;
+  flex-grow: 1;
+  text-align: center;
   text-decoration: none;
   padding: 1.5rem 2rem;
   box-shadow: 0.2rem 0.2rem 0.5rem 0.05rem rgba(0, 0, 0, 0.2);
@@ -409,6 +459,7 @@ select {
   --background: #202c37;
   --elements-bg: #2b3945;
   --text-color: #ffffff;
+  --info-text: #e5e5e5;
   --displaySun: block;
   --displayMoon: none;
 }
@@ -423,6 +474,7 @@ select {
   --background: #fafafa;
   --elements-bg: #ffffff;
   --text-color: #111517;
+  --info-text: #4c4c4c;
   --input: #858585;
   --displaySun: none;
   --displayMoon: block;

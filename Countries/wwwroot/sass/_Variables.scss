@@ -5,14 +5,15 @@ $nunito-sans: Nunito Sans;
     --background: #202c37;
     --elements-bg: #2b3945;
     --text-color: #ffffff;
+    --info-text: #e5e5e5;
     --displaySun: block;
     --displayMoon: none;
 
-    .moon-icon{
+    .moon-icon {
         display: var(--displayMoon);
     }
 
-    .dark{
+    .dark {
         display: none;
     }
 }
@@ -23,6 +24,7 @@ $nunito-sans: Nunito Sans;
     --background: #fafafa;
     --elements-bg: #ffffff;
     --text-color: #111517;
+    --info-text: #4c4c4c;
     --input: #858585; //light-mode-input
 
     --displaySun: none;
@@ -32,11 +34,11 @@ $nunito-sans: Nunito Sans;
         display: var(--displaySun);
     }
 
-    .light{
+    .light {
         display: none;
     }
 
-    .dark{
+    .dark {
         display: block;
     }
 }

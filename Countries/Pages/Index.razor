@@ -36,9 +36,18 @@
                     <div class="card">
                         <img class="card-img" src="@country?.flags?.png" alt="austria small flag" />
                         <div class="card-country-info">
-                            <p class="card-country-name">@country?.name?.common</p>
-                            <p>Population: <span class="card-info-prc"> @country?.population </span></p>
-                            <p>Region: <span class="card-info-prc">@country?.region </span></p>
+                            <h3 class="card-country-name">@country?.name?.common</h3>
+                            <div class="info-container">
+                                <p> Population: <span class="card-info-prc"> @country?.population </span></p>
+                                <p>Region: <span class="card-info-prc">@country?.region </span></p>
+                                @if (country?.capital is not null)
+                                {
+                                @foreach (var capital in country.capital)
+                                {
+                                <p>Capital: <span class="card-info-prc">@capital</span></p>
+                                }
+                                }
+                            </div>
                         </div>
                     </div>
                 </a>
